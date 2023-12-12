@@ -6,10 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.eni.PizzaOnline.bo.Base;
 import fr.eni.PizzaOnline.bo.Cheese;
 import fr.eni.PizzaOnline.bo.Food;
 import fr.eni.PizzaOnline.bo.Ingredient;
 import fr.eni.PizzaOnline.bo.Pizza;
+import fr.eni.PizzaOnline.dal.BaseDAO;
+import fr.eni.PizzaOnline.dal.CheeseDAO;
+import fr.eni.PizzaOnline.dal.IngredientDAO;
 import fr.eni.PizzaOnline.dal.PizzaDAO;
 
 @Service
@@ -17,12 +21,34 @@ public class PizzaManagerImpl implements PizzaManager {
 
 	@Autowired
 	PizzaDAO pizzaDAO;
+	@Autowired
+	CheeseDAO cheeseDAO;
+	@Autowired
+	BaseDAO baseDAO;
+	@Autowired
+	IngredientDAO ingredientDAO;
 
 	@Override
 	public void addPizza(Pizza pizza) {
 		pizzaDAO.save(pizza);
-		
-	}	
+	}
+	
+	@Override
+	public void addCheese(Cheese cheese) {
+		cheeseDAO.save(cheese);
+	}
+	
+	@Override
+	public void addIngredient(Ingredient ingredient) {
+		ingredientDAO.save(ingredient);
+	}
+	
+	@Override
+	public void addBase(Base base) {
+		baseDAO.save(base);
+	}
+	
+	
 	@Override
 	public void modPizza(Pizza pizza) {
 		pizzaDAO.save(pizza);
@@ -48,7 +74,7 @@ public class PizzaManagerImpl implements PizzaManager {
 	// Méthode pour lister les ingrédients d'une pizza
 	@Override
 	public List<Food> getFoodByPizza(Pizza pizza) {
-		List <Food> listFood = new ArrayList<>();
+		List<Food> listFood = new ArrayList<>();
 		
 		for(Cheese c : pizza.getListCheese()) {
 			listFood.add(c);
