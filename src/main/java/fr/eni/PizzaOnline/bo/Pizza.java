@@ -31,7 +31,7 @@ public class Pizza {
 	@ManyToMany
 	private List<Ingredient> listIngredient;
 	
-	public Pizza(String name, Boolean availableTakeAway, Boolean availableOnSite, Double price, Base base, List listCheese, List listIngredient) {
+	public Pizza(String name, Boolean availableTakeAway, Boolean availableOnSite, Double price, Base base, List<Cheese> listCheese, List<Ingredient> listIngredient) {
 		super();
 		this.name = name;
 		this.availableTakeAway = availableTakeAway;
@@ -42,7 +42,7 @@ public class Pizza {
 		this.listIngredient = listIngredient;
 	}
 
-	public Pizza(String name, Boolean availableTakeAway, Boolean availableOnSite, Base base, List listCheese, List listIngredient) {
+	public Pizza(String name, Boolean availableTakeAway, Boolean availableOnSite, Base base, List<Cheese> listCheese, List<Ingredient> listIngredient) {
 		super();
 		this.name = name;
 		this.availableTakeAway = availableTakeAway;
