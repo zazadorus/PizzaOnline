@@ -1,7 +1,9 @@
 package fr.eni.PizzaOnline.bo;
 
+import jakarta.persistence.Entity;
 import lombok.NoArgsConstructor;
 
+@Entity
 @NoArgsConstructor
 public class Ingredient extends Food {
 	

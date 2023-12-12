@@ -31,25 +31,26 @@ public class PizzaOnlineMvcApplication {
 	  
 	    private void initializeFood() {
 	        
-	        Cheese brie = new Cheese ("Brie de Meaux");
-	        Cheese mozzarella = new Cheese ("Mozzarella");
-	        Cheese goatCheese = new Cheese ("chèvre");
-	        Cheese emmental = new Cheese ("emmental");
-	        Cheese gorgonzola = new Cheese ("Gorgonzola AOP");
+	    	Double cheesePrice = 1.0;
+	        Cheese brie = new Cheese ("Brie de Meaux", cheesePrice);
+	        Cheese mozzarella = new Cheese ("Mozzarella", cheesePrice);
+	        Cheese goatCheese = new Cheese ("chèvre", cheesePrice);
+	        Cheese emmental = new Cheese ("emmental", cheesePrice);
+	        Cheese gorgonzola = new Cheese ("Gorgonzola AOP", cheesePrice);
 	        pizzaManager.addCheese(brie);
 	        pizzaManager.addCheese(mozzarella);
 	        pizzaManager.addCheese(goatCheese);
 	        pizzaManager.addCheese(emmental);
 	        pizzaManager.addCheese(gorgonzola);
 
-	        
-	        Ingredient bacon = new Ingredient ("Bacon");
-	        Ingredient pineapple = new Ingredient ("Ananas");
-	        Ingredient kebab = new Ingredient ("Viande de Kebab");
-	        Ingredient olives = new Ingredient ("Olives Kalamata");
-	        Ingredient salmon = new Ingredient ("Saumon fumé");
-	        Ingredient prune = new Ingredient ("Pruneau d'Agean");
-	        Ingredient coypu = new Ingredient ("Ragondin");
+	        Double ingredientPrice = 1.0;
+	        Ingredient bacon = new Ingredient ("Bacon", ingredientPrice);
+	        Ingredient pineapple = new Ingredient ("Ananas", ingredientPrice);
+	        Ingredient kebab = new Ingredient ("Viande de Kebab", ingredientPrice);
+	        Ingredient olives = new Ingredient ("Olives Kalamata", ingredientPrice);
+	        Ingredient salmon = new Ingredient ("Saumon fumé", ingredientPrice);
+	        Ingredient prune = new Ingredient ("Pruneau d'Agean", ingredientPrice);
+	        Ingredient coypu = new Ingredient ("Ragondin", ingredientPrice);
 	        pizzaManager.addIngredient(bacon);
 	        pizzaManager.addIngredient(pineapple);
 	        pizzaManager.addIngredient(kebab);
