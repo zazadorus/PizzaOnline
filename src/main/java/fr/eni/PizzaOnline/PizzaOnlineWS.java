@@ -88,9 +88,6 @@ public class PizzaOnlineWS {
     	pizza3Ingredient.add(salmon);
     	pizza3Ingredient.add(prune);
     	
-    	
-    	
-    	
         pizzaManager.addPizza(new Pizza("Festin des grands jours", true,true,15.0,tomato,pizza1Cheese,pizza1Ingredient));   	
         pizzaManager.addPizza(new Pizza("Grana Delicioza", true,true,13.50,tomato,pizza2Cheese,pizza2Ingredient));
         pizzaManager.addPizza(new Pizza("Opération gastro", true,true,5.0,cream,pizza3Cheese,pizza3Ingredient));
