@@ -2,6 +2,9 @@ package fr.eni.PizzaOnline.bll;
 
 import java.util.List;
 
+import fr.eni.PizzaOnline.bo.Food;
+import fr.eni.PizzaOnline.bo.Pizza;
+
 public interface PizzaManager {
 
 	public void addPizza(Pizza pizza);

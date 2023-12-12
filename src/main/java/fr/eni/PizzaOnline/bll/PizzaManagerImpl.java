@@ -6,6 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.eni.PizzaOnline.bo.Cheese;
+import fr.eni.PizzaOnline.bo.Food;
+import fr.eni.PizzaOnline.bo.Ingredient;
+import fr.eni.PizzaOnline.bo.Pizza;
 import fr.eni.PizzaOnline.dal.PizzaDAO;
 
 @Service
@@ -21,25 +25,25 @@ public class PizzaManagerImpl implements PizzaManager {
 	}	
 	@Override
 	public void modPizza(Long id) {
-		Pizza pizza = pizzaDAO.findById(id);
+		Pizza pizza = getPizzaById(id);
 		pizzaDAO.save(pizza);
 		
 	}
 
 	@Override
 	public void delPizza(Long id) {
-		Pizza pizza = pizzaDAO.findById(id);
+		Pizza pizza = getPizzaById(id);
 		pizzaDAO.delete(pizza);
 	}
 
 	@Override
 	public List<Pizza> getAllPizzas() {
-		return pizzaDAO.findAll();
+		return (List<Pizza>) pizzaDAO.findAll();
 	}
 
 	@Override
 	public Pizza getPizzaById(Long id) {
-		return pizzaDAO.findById(id).OrElse(null);
+		return pizzaDAO.findById(id).orElse(null);
 	}
 	
 	// Méthode pour lister les ingrédients d'une pizza

@@ -2,6 +2,11 @@ package fr.eni.PizzaOnline.bll;
 
 import java.util.List;
 
+import fr.eni.PizzaOnline.bo.Cart;
+import fr.eni.PizzaOnline.bo.Customer;
+import fr.eni.PizzaOnline.bo.PizzaOrder;
+import fr.eni.PizzaOnline.bo.ReductionCode;
+
 public interface PizzaOrderManager {
 
 	public void addPizzaOrder(PizzaOrder pizzaOrder);
@@ -17,7 +22,5 @@ public interface PizzaOrderManager {
 	public Double getTotalPrice(PizzaOrder pizzaOrder);
 	
 	public PizzaOrder setPizzaOrder(Cart cart, Customer customer, ReductionCode reductionCode);
-	
-	public Double getTotalPrice(PizzaOrder pizzaOrder);
 	
 }

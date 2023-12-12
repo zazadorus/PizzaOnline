@@ -2,6 +2,8 @@ package fr.eni.PizzaOnline.bll;
 
 import java.util.List;
 
+import fr.eni.PizzaOnline.bo.Customer;
+
 public interface CustomerManager {
 	
 	public void addCustomer(Customer customer);
