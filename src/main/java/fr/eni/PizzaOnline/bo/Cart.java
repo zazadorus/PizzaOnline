@@ -18,6 +18,6 @@ public class Cart {
 	@GeneratedValue
 	private Long id;
 	@ManyToMany
-	private List listPizza;
+	private List<Pizza> listPizza;
 
 }

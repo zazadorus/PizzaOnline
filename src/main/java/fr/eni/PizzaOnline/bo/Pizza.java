@@ -27,9 +27,9 @@ public class Pizza {
 	@ManyToOne
 	private Base base;
 	@ManyToMany
-	private List listCheese;
+	private List<Cheese> listCheese;
 	@ManyToMany
-	private List listIngredient;
+	private List<Ingredient> listIngredient;
 	
 	public Pizza(String name, Boolean availableTakeAway, Boolean availableOnSite, Double price, Base base, List listCheese, List listIngredient) {
 		super();
@@ -37,6 +37,16 @@ public class Pizza {
 		this.availableTakeAway = availableTakeAway;
 		this.availableOnSite = availableOnSite;
 		this.price = price;
+		this.base = base;
+		this.listCheese = listCheese;
+		this.listIngredient = listIngredient;
+	}
+
+	public Pizza(String name, Boolean availableTakeAway, Boolean availableOnSite, Base base, List listCheese, List listIngredient) {
+		super();
+		this.name = name;
+		this.availableTakeAway = availableTakeAway;
+		this.availableOnSite = availableOnSite;
 		this.base = base;
 		this.listCheese = listCheese;
 		this.listIngredient = listIngredient;

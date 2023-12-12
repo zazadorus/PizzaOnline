@@ -35,7 +35,7 @@ public class Customer {
 	private String digicode2;
 	private String instruction;
 	@OneToMany 
-	private List pizzaOrder;
+	private List<PizzaOrder> pizzaOrder;
 
 	public Customer(Long id, String lastname, String firstname, String adress, String postalCode, String city) {
 		super();
