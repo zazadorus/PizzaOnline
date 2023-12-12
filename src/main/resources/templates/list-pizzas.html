@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<ul>
+		<li th:each="pizza : ${listePizzas}">
+			<span th:text="${pizza.name}"/>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
