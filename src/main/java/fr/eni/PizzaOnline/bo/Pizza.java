@@ -23,6 +23,7 @@ public class Pizza {
 	private Boolean availableTakeAway;
 	private Boolean availableOnSite;
 	private Double price;
+	private String imageLink;
 	@ManyToOne
 	private Base base;
 	@ManyToMany
