@@ -2,14 +2,13 @@ package fr.eni.PizzaOnline.bo;
 
 import lombok.NoArgsConstructor;
 
+
 @NoArgsConstructor
 public class Cheese extends Food {
 	
-	final static double PRICE = 1;
-
-	public Cheese(String wording) {
-		super(wording, PRICE);
+	public Cheese(String wording, Double price) {
+		super(wording, price);
+		// TODO Auto-generated constructor stub
 	}
-
 
 }

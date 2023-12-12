@@ -5,10 +5,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Ingredient extends Food {
 	
-	final static double PRICE = 1;
-
-	public Ingredient( String wording) {
-		super(wording, PRICE);
+	public Ingredient(String wording, Double price) {
+		super(wording, price);
+		// TODO Auto-generated constructor stub
 	}
-
+	
 }

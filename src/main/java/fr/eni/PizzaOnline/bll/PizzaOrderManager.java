@@ -11,7 +11,7 @@ public interface PizzaOrderManager {
 
 	public void addPizzaOrder(PizzaOrder pizzaOrder);
 	
-	public void modPizzaOrder(Long id);
+	public void modPizzaOrder(PizzaOrder pizzaOrder);
 	
 	public void delPizzaOrder(Long id);
 	

@@ -19,5 +19,10 @@ public class Cart {
 	private Long id;
 	@ManyToMany
 	private List<Pizza> listPizza;
+	
+	public Cart(List<Pizza> listPizza) {
+		super();
+		this.listPizza = listPizza;
+	}	
 
 }
