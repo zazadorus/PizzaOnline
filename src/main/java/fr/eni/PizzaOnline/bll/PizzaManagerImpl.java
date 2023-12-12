@@ -24,8 +24,7 @@ public class PizzaManagerImpl implements PizzaManager {
 		
 	}	
 	@Override
-	public void modPizza(Long id) {
-		Pizza pizza = getPizzaById(id);
+	public void modPizza(Pizza pizza) {
 		pizzaDAO.save(pizza);
 		
 	}

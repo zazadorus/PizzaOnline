@@ -37,9 +37,8 @@ public class Customer {
 	@OneToMany 
 	private List<PizzaOrder> pizzaOrder;
 
-	public Customer(Long id, String lastname, String firstname, String adress, String postalCode, String city) {
+	public Customer(String lastname, String firstname, String adress, String postalCode, String city) {
 		super();
-		this.id = id;
 		this.lastname = lastname;
 		this.firstname = firstname;
 		this.adress = adress;

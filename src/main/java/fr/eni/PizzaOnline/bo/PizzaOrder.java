@@ -26,19 +26,19 @@ public class PizzaOrder {
 	@ManyToOne
 	private ReductionCode reductionCode;
 	@ManyToMany
-	private List<Pizza> PizzaList;
+	private List<Pizza> listPizza;
 	@ManyToOne
 	private Customer customer;
 	
 	public PizzaOrder(LocalDate deliveryDate, String deliveryHour, LocalDate orderDate, String orderHour,
-			ReductionCode reductionCode, List<Pizza> pizzaList, Customer customer) {
+			ReductionCode reductionCode, List<Pizza> listPizza, Customer customer) {
 		super();
 		this.deliveryDate = deliveryDate;
 		this.deliveryHour = deliveryHour;
 		this.orderDate = orderDate;
 		this.orderHour = orderHour;
 		this.reductionCode = reductionCode;
-		PizzaList = pizzaList;
+		this.listPizza = listPizza;
 		this.customer = customer;
 	}
 	

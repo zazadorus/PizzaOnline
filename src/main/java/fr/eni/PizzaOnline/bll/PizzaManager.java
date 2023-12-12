@@ -9,7 +9,7 @@ public interface PizzaManager {
 
 	public void addPizza(Pizza pizza);
 	
-	public void modPizza(Long id);
+	public void modPizza(Pizza pizza);
 	
 	public void delPizza(Long id);
 	

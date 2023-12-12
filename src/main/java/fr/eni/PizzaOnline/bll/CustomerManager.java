@@ -8,7 +8,7 @@ public interface CustomerManager {
 	
 	public void addCustomer(Customer customer);
 	
-	public void modCustomer(Long id);
+	public void modCustomer(Customer customer);
 	
 	public void delCustomer(Long id);
 	

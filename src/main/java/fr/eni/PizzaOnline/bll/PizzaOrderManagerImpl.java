@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import fr.eni.PizzaOnline.bo.Cart;
 import fr.eni.PizzaOnline.bo.Customer;
-import fr.eni.PizzaOnline.bo.Food;
 import fr.eni.PizzaOnline.bo.Pizza;
 import fr.eni.PizzaOnline.bo.PizzaOrder;
 import fr.eni.PizzaOnline.bo.ReductionCode;
@@ -31,8 +30,7 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	}
 
 	@Override
-	public void modPizzaOrder(Long id) {
-		PizzaOrder pizzaOrder = getPizzaOrderById(id);
+	public void modPizzaOrder(PizzaOrder pizzaOrder) {
 		pizzaOrderDAO.save(pizzaOrder);
 		
 	}
@@ -57,10 +55,10 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	// Méthode pour construire une commande à partir d'un panier, d'un client, et d'un code de réduction
 	@Override
 	public PizzaOrder setPizzaOrder(Cart cart, Customer customer, ReductionCode reductionCode) {
-		List<Food> listPizza = new ArrayList<>();
+		List<Pizza> listPizza = new ArrayList<>();
 		listPizza = cart.getListPizza();
 		
-		return new PizzaOrder(LocalDate.now(), "10h00", localDate.now(), "11h00", listPizza, customer, reductionCode);
+		return new PizzaOrder(LocalDate.now(), "10h00", LocalDate.now(), "11h00",reductionCode, listPizza, customer);
 	}
 	
 	// M&thode pour obtenir le prix d'une commande à partir des pizzas et du code de réduction

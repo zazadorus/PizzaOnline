@@ -16,4 +16,10 @@ public class ReductionCode {
 	private Long id;
 	private String codeReduction;
 	private Double amountReduction;
+	
+	public ReductionCode(String codeReduction, Double amountReduction) {
+		super();
+		this.codeReduction = codeReduction;
+		this.amountReduction = amountReduction;
+	}
 }

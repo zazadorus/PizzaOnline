@@ -25,7 +25,5 @@ public class Food {
 		this.wording = wording;
 		this.price = price;
 	}
-	
-	
 
 }

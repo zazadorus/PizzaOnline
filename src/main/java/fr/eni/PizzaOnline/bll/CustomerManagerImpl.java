@@ -21,8 +21,7 @@ public class CustomerManagerImpl implements CustomerManager{
 	}
 
 	@Override
-	public void modCustomer(Long id) {
-		Customer customer = getCustomerById(id);
+	public void modCustomer(Customer customer) {
 		customerDAO.save(customer);
 	}
 
