@@ -24,7 +24,7 @@ public class PizzaOrder {
 	private LocalDate orderDate;
 	private String orderHour;
 	@ManyToOne
-	private ReductionCode reduction;
+	private ReductionCode reductionCode;
 	@ManyToMany
 	private List<Pizza> PizzaList;
 	@ManyToOne
