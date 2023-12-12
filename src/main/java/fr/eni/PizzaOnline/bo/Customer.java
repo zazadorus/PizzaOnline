@@ -1,9 +1,11 @@
 package fr.eni.PizzaOnline.bo;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -32,8 +34,8 @@ public class Customer {
 	private String digicode1;
 	private String digicode2;
 	private String instruction;
-	@ManyToMany
-	public PizzaOrder pizzaOrder;
+	@OneToMany 
+	private List pizzaOrder;
 
 	public Customer(Long id, String lastname, String firstname, String adress, String postalCode, String city) {
 		super();

@@ -27,7 +27,8 @@ public class PizzaOrder {
 	private ReductionCode reduction;
 	@ManyToMany
 	private List PizzaList;
-	@ManyToMany
-	public Customer customer;
+	@ManyToOne
+	private Customer customer;
+	
 
 }
