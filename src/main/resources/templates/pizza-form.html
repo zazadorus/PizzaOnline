@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Creer une pizza personnalisée</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+	<div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"></script>
+<!--FOMRULAR -->
+		<form th:action="@{/ajout-pizza}" th:object="${pizza}" method="POST">
+			
+			<!--name -->
+			<div>
+				
+				<legend>Nom de votre pizza</legend>
+				<input type="text" th:field="*{name}" placeholder="Pizza Régal"/>
+				<!--error message if the name is empty.  -->
+			 	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+			</div>	
+			
+			<!--base -->
+			<div>
+				<legend>Choisissez votre base</legend>
+				<select name="base" id="base-select" th:field="*{base}">
+					<option value="tomato">Tomate</option>
+					<option value="cream">Crème</option>
+				</select>
+			</div>	
+			
+			<!--cheese -->
+			<div>
+				<fieldset>
+				<legend>Choisissez vos fromages</legend>
+				<input type="checkbox"  value="Gorgonz" checked><label >Gorgonz</label>	
+				<input type="checkbox"  value="Mozzarel"><label >Mozzarel</label>	
+				<input type="checkbox"  value="Chev"><label >Chev</label>	
+			</div>	
+
+					
+			<!--Ingredients -->
+			<div>
+				<legend>Choisissez vos Ingredients</legend>
+				<select name="ingredient" id="ingedient-select" multiple>
+				
+					<option value="Bacon">Bacon</option>
+					<option value="Champi">Champi</option>
+					<option value="Artichô">Artichô</option>
+					<option value="Oeuf">Oeuf</option>
+				</select> 
+			</div>		 
+				 
+				 
+			<input type="submit" value="ajouter" />
+		</form>
+
+	</div>
+
+	
+</body>
+
+</html>
+
+
+
+<!--<form th:action="@{/pizza}" th:object="${pizza}" method="POST">
+			
+			//name
+			<input type="text" th:field="*{name}" />
+				
+			error message if the name is empty. 
+			
+			 <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+				
+			//base
+			<select name="base" id="base-select" th:field="*{base}">
+				<option value="Tomate">
+				<option value="Crème">
+			</select>
+			
+			//cheese
+				<fieldset>
+				<legend>Choisissez vos fromages</legend>
+				<li th:each="cheese : ${listeCheeses}">
+				<input type="checkbox"  th:text="*{${cheese.wording}}" />	
+				</li>
+					
+			//Ingredients
+				
+				<legend>Choisissez vos Ingredients</legend>
+				<select name="ingredient" id="ingedient-select" th:field="*{ingredient}"multiple="yes">
+				<li th:each="ingredient : ${listeIngredients}">
+					<option value="*{${ingredient.wording}}">${ingredient.wording}</option>
+				
+				</li>	
+				 
+
+			</select> 
+			
+			-->
