@@ -1,6 +1,7 @@
 package fr.eni.PizzaOnline.bo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -18,7 +19,7 @@ public class PizzaOrder {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	private LocalDate deliveryDate;
 	private String deliveryHour;
 	private LocalDate orderDate;
@@ -26,7 +27,7 @@ public class PizzaOrder {
 	@ManyToOne
 	private ReductionCode reductionCode;
 	@ManyToMany
-	private List<Pizza> listPizza;
+	private List<Pizza> listPizza = new ArrayList<>();;
 	@ManyToOne
 	private Customer customer;
 	

@@ -1,5 +1,6 @@
 package fr.eni.PizzaOnline.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -10,8 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import fr.eni.PizzaOnline.bo.Base;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,7 +21,7 @@ public class Pizza {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	private String name;
 	private Boolean availableTakeAway;
 	private Boolean availableOnSite;
@@ -32,9 +31,9 @@ public class Pizza {
 	@JoinColumn(name="base_id")
 	private Base base;
 	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	private List<Cheese> listCheese;
+	private List<Cheese> listCheese = new ArrayList<>();
 	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	private List<Ingredient> listIngredient;
+	private List<Ingredient> listIngredient = new ArrayList<>();;
 	
 	public Pizza(String name, Boolean availableTakeAway, Boolean availableOnSite, Double price, Base base, List<Cheese> listCheese, List<Ingredient> listIngredient) {
 		super();

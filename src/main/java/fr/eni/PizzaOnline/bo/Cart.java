@@ -1,5 +1,6 @@
 package fr.eni.PizzaOnline.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -16,9 +17,9 @@ public class Cart {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	@ManyToMany
-	private List<Pizza> listPizza;
+	private List<Pizza> listPizza = new ArrayList<>();
 	
 	public Cart(List<Pizza> listPizza) {
 		super();

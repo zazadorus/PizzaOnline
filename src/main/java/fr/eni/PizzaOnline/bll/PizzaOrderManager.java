@@ -13,11 +13,11 @@ public interface PizzaOrderManager {
 	
 	public void modPizzaOrder(PizzaOrder pizzaOrder);
 	
-	public void delPizzaOrder(Long id);
+	public void delPizzaOrder(Integer id);
 	
 	public List<PizzaOrder> getAllPizzaOrders();
 	
-	public PizzaOrder getPizzaOrderById(Long id);
+	public PizzaOrder getPizzaOrderById(Integer id);
 	
 	public Double getTotalPrice(PizzaOrder pizzaOrder);
 	

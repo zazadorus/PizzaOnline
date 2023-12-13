@@ -16,6 +16,8 @@ public class CartManagerImpl implements CartManager {
 	PizzaManager pizzaManager;
 	
 	// Methode pour obtenir le prix d'un panier à partir du prix des pizzas
+	// TEST : NOK
+	// Problème de calcul de prix
 	@Override
 	public Double getTotalPrice(Cart cart) {
 		Double price = 0.00;

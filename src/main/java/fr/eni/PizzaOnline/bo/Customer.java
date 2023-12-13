@@ -1,5 +1,6 @@
 package fr.eni.PizzaOnline.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -16,7 +17,7 @@ public class Customer {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	private String civility;
 	private String lastname;
 	private String firstname;
@@ -35,7 +36,7 @@ public class Customer {
 	private String digicode2;
 	private String instruction;
 	@OneToMany 
-	private List<PizzaOrder> pizzaOrder;
+	private List<PizzaOrder> pizzaOrder = new ArrayList<>();
 
 	public Customer(String lastname, String firstname, String adress, String postalCode, String city) {
 		super();
