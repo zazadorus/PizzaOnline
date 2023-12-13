@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Food {
+public abstract class Food {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	private String wording;
 	private Double price;
 	

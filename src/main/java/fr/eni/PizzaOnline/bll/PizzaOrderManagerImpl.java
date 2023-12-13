@@ -13,6 +13,7 @@ import fr.eni.PizzaOnline.bo.Pizza;
 import fr.eni.PizzaOnline.bo.PizzaOrder;
 import fr.eni.PizzaOnline.bo.ReductionCode;
 import fr.eni.PizzaOnline.dal.PizzaOrderDAO;
+import fr.eni.PizzaOnline.dal.ReductionCodeDAO;
 
 @Service
 public class PizzaOrderManagerImpl implements PizzaOrderManager {
@@ -23,37 +24,48 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	@Autowired
 	PizzaManager pizzaManager;
 	
+	@Autowired
+	ReductionCodeDAO reductionCodeDAO;
+	
 	@Override
+	// TEST : OK
 	public void addPizzaOrder(PizzaOrder pizzaOrder) {
 		pizzaOrderDAO.save(pizzaOrder);
-		
 	}
 
 	@Override
+	// TEST : NOK
 	public void modPizzaOrder(PizzaOrder pizzaOrder) {
 		pizzaOrderDAO.save(pizzaOrder);
 		
 	}
 
 	@Override
-	public void delPizzaOrder(Long id) {
+	// TEST : OK
+	public void delPizzaOrder(Integer id) {
 		PizzaOrder pizzaOrder = getPizzaOrderById(id);
 		pizzaOrderDAO.delete(pizzaOrder);
 		
 	}
 
 	@Override
+	// TEST : NOK
+	// failed to lazily initialize a collection of role: fr.eni.PizzaOnline.bo.PizzaOrder.listPizza: could not initialize proxy - no Session
 	public List<PizzaOrder> getAllPizzaOrders() {
 		return (List<PizzaOrder>) pizzaOrderDAO.findAll();
 	}
 
 	@Override
-	public PizzaOrder getPizzaOrderById(Long id) {
+	// TEST : NOK
+	// failed to lazily initialize a collection of role: fr.eni.PizzaOnline.bo.PizzaOrder.listPizza: could not initialize proxy - no Session
+	public PizzaOrder getPizzaOrderById(Integer id) {
 		return pizzaOrderDAO.findById(id).orElse(null);
 	}
 	
 	// Méthode pour construire une commande à partir d'un panier, d'un client, et d'un code de réduction
 	@Override
+	// TEST : OK
+	// A modifier pour les dates livraison et commande
 	public PizzaOrder setPizzaOrder(Cart cart, Customer customer, ReductionCode reductionCode) {
 		List<Pizza> listPizza = new ArrayList<>();
 		listPizza = cart.getListPizza();
@@ -61,8 +73,10 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 		return new PizzaOrder(LocalDate.now(), "10h00", LocalDate.now(), "11h00",reductionCode, listPizza, customer);
 	}
 	
-	// M&thode pour obtenir le prix d'une commande à partir des pizzas et du code de réduction
+	// Méthode pour obtenir le prix d'une commande à partir des pizzas et du code de réduction
 	@Override
+	// TEST : NOK
+	// Problème de calcul
 	public Double getTotalPrice(PizzaOrder pizzaOrder) {
 		Double price = 0.00;
 		List <Pizza> listPizza = new ArrayList<>();
@@ -70,7 +84,7 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 		for(Pizza p : listPizza) {
 			price += pizzaManager.getPizzaPrice(p);
 		}
-		price = price * (1-pizzaOrder.getReductionCode().getAmountReduction()/100);
+		price = price * (1-pizzaOrder.getReductionCode().getAmountReduction());
 		return price;
 	}
 	

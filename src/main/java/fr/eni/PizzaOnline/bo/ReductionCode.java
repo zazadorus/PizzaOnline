@@ -13,7 +13,7 @@ public class ReductionCode {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	private String codeReduction;
 	private Double amountReduction;
 	

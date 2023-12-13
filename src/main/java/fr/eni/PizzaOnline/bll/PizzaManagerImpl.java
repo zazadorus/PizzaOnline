@@ -29,69 +29,57 @@ public class PizzaManagerImpl implements PizzaManager {
 	IngredientDAO ingredientDAO;
 
 	@Override
+	// TEST : OK
 	public void addPizza(Pizza pizza) {
 		pizzaDAO.save(pizza);
 	}
-	
+		
 	@Override
-	public void addCheese(Cheese cheese) {
-		cheeseDAO.save(cheese);
-	}
-	
-	@Override
-	public void addIngredient(Ingredient ingredient) {
-		ingredientDAO.save(ingredient);
-	}
-	
-	@Override
-	public void addBase(Base base) {
-		baseDAO.save(base);
-	}
-	
-	
-	@Override
+	// TEST : NOK
 	public void modPizza(Pizza pizza) {
 		pizzaDAO.save(pizza);
-		
 	}
 
 	@Override
-	public void delPizza(Long id) {
+	// TEST : NOK
+	// Intégrité référentielle violation de contrainte: "FKNLOW8KD7GSHS3I14XQNA7ESAI: PUBLIC.PIZZA_ORDER_LIST_PIZZA FOREIGN KEY(LIST_PIZZA_ID) REFERENCES PUBLIC.PIZZA(ID) (2)"
+	// Referential integrity constraint violation: "FKNLOW8KD7GSHS3I14XQNA7ESAI: PUBLIC.PIZZA_ORDER_LIST_PIZZA FOREIGN KEY(LIST_PIZZA_ID) REFERENCES PUBLIC.PIZZA(ID) (2)"; SQL statement:
+	public void delPizza(Integer id) {
 		Pizza pizza = getPizzaById(id);
 		pizzaDAO.delete(pizza);
 	}
 
 	@Override
+	// TEST : OK
 	public List<Pizza> getAllPizzas() {
 		return (List<Pizza>) pizzaDAO.findAll();
 	}
 
 	@Override
-	public Pizza getPizzaById(Long id) {
+	// TEST : OK
+	public Pizza getPizzaById(Integer id) {
 		return pizzaDAO.findById(id).orElse(null);
 	}
 	
 	// Méthode pour lister les ingrédients d'une pizza
 	@Override
+	// TEST : OK
 	public List<Food> getFoodByPizza(Pizza pizza) {
 		List<Food> listFood = new ArrayList<>();
-		
 		for(Cheese c : pizza.getListCheese()) {
 			listFood.add(c);
 		}
-		
 		for(Ingredient i : pizza.getListIngredient()) {
 			listFood.add(i);
 		}
-		
 		listFood.add(pizza.getBase());
-		
 		return listFood;
 	}
 	
 	// Méthode pour obtenir le prix d'une pizza à partir de sa liste d'ingrédients
-	// Uniquement pour les pizzas créées par l'utilisateur, pour les pizzas de base du menu, utiliser getPrice()
+	// Uniquement pour les pizzas créées par l'utilisateur
 	@Override
+	// TEST : OK
 	public Double getPizzaPrice(Pizza pizza) {
 		Double price = 0.00;
 		List <Food> listFood = new ArrayList<>();

@@ -10,10 +10,10 @@ public interface CustomerManager {
 	
 	public void modCustomer(Customer customer);
 	
-	public void delCustomer(Long id);
+	public void delCustomer(Integer id);
 	
 	public List<Customer> getAllCustomers();
 	
-	public Customer getCustomerById(Long id);
+	public Customer getCustomerById(Integer id);
 	
 }
