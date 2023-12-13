@@ -1,0 +1,120 @@
+body {
+	background-color: var(--bs-body-bg);
+
+	background-size: auto;
+	background-size: cover;
+	box-sizing: border-box;
+	font-style: normal;
+	font-weight: 400;
+	outline: none;
+
+}
+
+.header {
+	background-color: var(--bs-body-bg);
+	border-bottom: 1px solid #000;
+	height: 3rem;
+	width: 100%;
+	display: block;
+}
+
+.header_inner {
+	background-color: rgb(255, 255, 128);
+	align-items: center;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-between;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header_nav {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	font-family: FoundersGrotesk-Medium, Helvetica, Arial, sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+.menu_nav_item {
+	border-bottom: 1px solid rgba(255, 236, 189, .25);
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	border-left: 1px solid rgba(255, 236, 189, .25);
+	border-right: 1px solid rgba(255, 236, 189, .25);
+	height: 100%;
+	margin-top: -1rem;
+	overflow: hidden;
+	padding-top: 1rem;
+	transition: all .5s linear;
+
+}
+
+.menu_nav_link {
+	margin-top: -.3rem;
+	padding: 1rem .25rem;
+	text-align: center;
+}
+
+.menu_nav_title {
+	border: 1px solid transparent;
+	border-radius: 2rem;
+	font-family: FoundersGrotesk-Medium, Helvetica, Arial, sans-serif;
+	font-size: .85rem;
+	line-height: 1rem;
+	padding: .1rem .75rem .3rem;
+	color: #000
+}
+
+:root {
+	--bs-body-bg: rgb(255, 253, 189);
+}
+
+h1 {
+	font-family: FoundersGrotesk-Medium;
+	font-size: 4rem;
+	line-height: 5rem;
+	padding: .1rem .75rem .3rem;
+}
+
+h2 {
+	font-family: Georgia, serif;
+	font-style: italic;
+}
+
+
+
+
+#products_container {
+	width: 70%;
+	align-items: center;
+	border-left: 1px solid #000;
+	border-bottom: 1px solid #000;
+	padding: 0;
+}
+
+.pizza {
+	border-right: 1px solid #000;
+	border-top: 1px solid #000;
+	overflow: hidden;
+	width: 100%;
+	padding: 20px;
+}
