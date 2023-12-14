@@ -65,73 +65,80 @@
 			</nav>
 		</div>
 	</header>
-	
+
 	<main>
-	<h1>Notre menu</h1>
+		<h1>Notre menu</h1>
+
+		<div class="contenu">
+			<div id="products_container">
+
+				<div th:each="pizza : ${listePizzas}" class="pizza">
+
+					<!--class="row" th:if="${pizzaStat.index%2 == 0}"-->
 
 
-	<div class="container" id="products_container">
-
-		<div th:each="pizza : ${listePizzas}">
-
-			<!--class="row" th:if="${pizzaStat.index%2 == 0}"-->
-
-			<div class="row" th:if="${pizzaStat.index%2 == 0}">
 
 
-				<div class="col">
-					<div class="pizza">
-					<img alt="html image example" src="../images/pizza8.jpg"  />
-					<h2 th:text="${pizza.name}"></h2>
-					
-					<div>
-						<span style="text-decoration: underline;">Ingrédients :</span>
-						<span th:text="${pizza.base.wording}"></span><span>, </span>
-						<span th:each="cheese : ${pizza.listCheese}">
-							<span th:text="${cheese.wording}"></span><span>, </span>
-						</span>
-						<span th:each="ingredient : ${pizza.listIngredient}">
-							<span th:text="${ingredient.wording}"></span><span>, </span>
-						</span>
+
+					<div class="photo-apetissante">
+
+						<img alt="html image example" th:src="${pizza.imageLink}" height:"fit-content" />
+
 					</div>
-					
-					<div>
-						<span style="text-decoration: underline;">Prix :</span>
-						<span th:text="${pizza.price}" /><span> €</span></div>
+
+					<div class="informations-pizza">
+						<h2 th:text="${pizza.name}"></h2>
+						<div>
+							<span style="text-decoration: underline;">Ingrédients :</span>
+							<span th:text="${pizza.base.wording}"></span><span>, </span>
+							<span th:each="cheese : ${pizza.listCheese}">
+								<span th:text="${cheese.wording}"></span><span>, </span>
+							</span>
+							<span th:each="ingredient : ${pizza.listIngredient}">
+								<span th:text="${ingredient.wording}"></span><span>, </span>
+							</span>
+						</div>
+						<div>
+							<span style="text-decoration: underline;">Prix :</span>
+							<span th:text="${pizza.price}" /><span> €</span>
+						</div>
+					</div>
 					<!--<span th:text="${pizzaStat.index}" />-->
 				</div>
-				</div>
 
-				
+			</div>
+		</div>
+		<!--
 				<div class="col " th:if="${(pizzaStat.index)+1<(pizzaStat.size)}">
-										<div class="pizza">
-					<div th:text="${listePizzas[(pizzaStat.index)+1].name}" />
-					<span th:text="${listePizzas[(pizzaStat.index)+1].price}" /><span> €</span><br>
-					<div>
-						<span>Ingrédients :</span>
-						<span th:text="${listePizzas[(pizzaStat.index)+1].base.wording}"></span><span>, </span>
-						<span th:each="cheese : ${listePizzas[(pizzaStat.index)+1].listCheese}">
-							<span th:text="${cheese.wording}"></span><span>, </span>
-						</span>
-						<span th:each="ingredient : ${listePizzas[(pizzaStat.index)+1].listIngredient}">
-							<span th:text="${ingredient.wording}"></span><span>, </span>
-						</span>
+					<div class="pizza">
+						<div th:text="${listePizzas[(pizzaStat.index)+1].name}" />
+						<span th:text="${listePizzas[(pizzaStat.index)+1].price}" /><span> €</span><br>
+						<div>
+							<span>Ingrédients :</span>
+							<span th:text="${listePizzas[(pizzaStat.index)+1].base.wording}"></span><span>,
+							</span>
+							<span th:each="cheese : ${listePizzas[(pizzaStat.index)+1].listCheese}">
+								<span th:text="${cheese.wording}"></span><span>, </span>
+							</span>
+							<span th:each="ingredient : ${listePizzas[(pizzaStat.index)+1].listIngredient}">
+								<span th:text="${ingredient.wording}"></span><span>, </span>
+							</span>
+						</div>
 					</div>
-				</div>
-				<div class="col" th:if="${(pizzaStat.index)+1>=(pizzaStat.size)}">
-				</div>
+					<div class="col" th:if="${(pizzaStat.index)+1>=(pizzaStat.size)}">
+					</div>
 				</div>
 			</div>
 
 		</div>
-	</div>
+		</div>
+-->
 
 
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-		crossorigin="anonymous"></script>
-</main>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"></script>
+	</main>
 </body>
 
 </html>
