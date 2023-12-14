@@ -4,68 +4,141 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sur place</title>
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link href="/style.css" rel="stylesheet">
 </head>
 
 <body>
-	<h1>Sur place</h1>
 
+	<header class="header">
+		<div class="header_inner">
+			<!--<a class="header_logo" href="/">
+			logo
+		</a>-->
 
-	<div class="container text-center" >
-		
-		<div th:each="pizza : ${listePizzas}">
-			
-			<!--class="row" th:if="${pizzaStat.index%2 == 0}"-->
+			<nav class="header_nav">
+				<li class="menu_nav_item">
 
-			<div class="row" th:if="${pizzaStat.index%2 == 0}">			
-				
-				
-				<div class="col">
-					<div th:text="${pizza.name}"></div>
-					<div><span th:text="${pizza.price}"/><span> €</span></div>
-					<div>
-						<span>Ingrédients :</span>
-						<span th:text="${pizza.base.wording}"></span><span>, </span>
-						<span th:each="cheese : ${pizza.listCheese}">
-							<span th:text="${cheese.wording}"></span><span>, </span>
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Accueil </span>
+					</a>
+
+				</li>
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Commander à emporter
 						</span>
-						<span th:each="ingredient : ${pizza.listIngredient}">
-							<span th:text="${ingredient.wording}"></span><span>, </span>
+					</a>
+
+				</li>
+
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Consulter le menu </span>
+					</a>
+
+				</li>
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Restaurant </span>
+					</a>
+
+				</li>
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Contact
 						</span>
+					</a>
+
+				</li>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<h1>Notre menu</h1>
+
+		<div class="contenu">
+			<div id="products_container">
+
+				<div th:each="pizza : ${listePizzas}" class="pizza">
+
+					<!--class="row" th:if="${pizzaStat.index%2 == 0}"-->
+
+
+
+
+
+					<div class="photo-apetissante">
+
+						<img alt="html image example" th:src="${pizza.imageLink}" height:"fit-content" />
+
 					</div>
-					<span th:text="${pizzaStat.index}"/>
-				</div>
-				
-				
-				<div class="col" th:if="${(pizzaStat.index)+1<(pizzaStat.size)}">
-					<div th:text="${listePizzas[(pizzaStat.index)+1].name}" />
-					<span th:text="${listePizzas[(pizzaStat.index)+1].price}"/><span> €</span><br>
-					<div>
-						<span>Ingrédients :</span>
-						<span th:text="${listePizzas[(pizzaStat.index)+1].base.wording}"></span><span>, </span>
-						<span th:each="cheese : ${listePizzas[(pizzaStat.index)+1].listCheese}">
-							<span th:text="${cheese.wording}"></span><span>, </span>
-						</span>
-						<span th:each="ingredient : ${listePizzas[(pizzaStat.index)+1].listIngredient}">
-							<span th:text="${ingredient.wording}"></span><span>, </span>
-						</span>
-					</div>
-				</div>
-				<div class="col" th:if="${(pizzaStat.index)+1>=(pizzaStat.size)}">
 
+					<div class="informations-pizza">
+						<h2 th:text="${pizza.name}"></h2>
+						<div>
+							<span style="text-decoration: underline;">Ingrédients :</span>
+							<span th:text="${pizza.base.wording}"></span><span>, </span>
+							<span th:each="cheese : ${pizza.listCheese}">
+								<span th:text="${cheese.wording}"></span><span>, </span>
+							</span>
+							<span th:each="ingredient : ${pizza.listIngredient}">
+								<span th:text="${ingredient.wording}"></span><span>, </span>
+							</span>
+						</div>
+						<div>
+							<span style="text-decoration: underline;">Prix :</span>
+							<span th:text="${pizza.price}" /><span> €</span>
+						</div>
+					</div>
+					<!--<span th:text="${pizzaStat.index}" />-->
+				</div>
+
+			</div>
+		</div>
+		<!--
+				<div class="col " th:if="${(pizzaStat.index)+1<(pizzaStat.size)}">
+					<div class="pizza">
+						<div th:text="${listePizzas[(pizzaStat.index)+1].name}" />
+						<span th:text="${listePizzas[(pizzaStat.index)+1].price}" /><span> €</span><br>
+						<div>
+							<span>Ingrédients :</span>
+							<span th:text="${listePizzas[(pizzaStat.index)+1].base.wording}"></span><span>,
+							</span>
+							<span th:each="cheese : ${listePizzas[(pizzaStat.index)+1].listCheese}">
+								<span th:text="${cheese.wording}"></span><span>, </span>
+							</span>
+							<span th:each="ingredient : ${listePizzas[(pizzaStat.index)+1].listIngredient}">
+								<span th:text="${ingredient.wording}"></span><span>, </span>
+							</span>
+						</div>
+					</div>
+					<div class="col" th:if="${(pizzaStat.index)+1>=(pizzaStat.size)}">
+					</div>
 				</div>
 			</div>
-		
+
 		</div>
-	</div>
-	
+		</div>
+-->
 
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-		crossorigin="anonymous"></script>
-
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"></script>
+	</main>
 </body>
 
 </html>
