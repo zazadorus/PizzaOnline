@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Commander à emporter</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link href="/style.css" rel="stylesheet">
@@ -99,18 +99,35 @@
 							<span th:text="${pizza.price}" /><span> €</span>
 						</div>
 
-						<div class="number-control">
+						<!--<div class="number-control">
 							<div class="number-left"></div>
 							<input type="number" name="number" class="number-quantity" value="0">
 							<div class="number-right"></div>
-						</div>
+						</div>-->
+						<form th:action="@{/commande}" method="POST" class="input-group">
+							<input type="hidden" th:value="${pizza.id}" th:name="pizzaId" >
+							<input type="button" value="-" class="button-minus border icon-shape icon-sm mx-1 " data-field="quantity">
+			        		<input type="number" step="1" max="10" value="1" th:name="quantity" class="quantity-field border-0 text-center w-25">
+			        		<input type="button" value="+" class="button-plus border icon-shape icon-sm " data-field="quantity">
+			        		<button type="submit">Ajouter</button>
+						</form>
 					</div>
 
 				</div>
 
 			</div>
 			<div class="bucket">
-			<p>Ceci est notre panier</p>
+			<h4>Récapitulatif</h4>
+				<div th:each="pizza : ${cart.listPizza}">
+					Pizza : <span th:text="${pizza.name}"></span>
+					<br>Prix : <span th:text="${pizza.price}"></span>
+				</div>
+				<br>
+				<span th:if="${cart.listPizza.size!=0}" >Vous avez commandé</span> <span th:text="${cart.listPizza.size}"></span> pizzas
+			<br>
+			<span>Prix Total <span th:text="${totalCart}"></span> €</span>
+			<br>
+			<button>DO SOMETHING</button>
 			</div>
 		</div>
 
@@ -118,6 +135,43 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 			crossorigin="anonymous"></script>
+			<script>
+				function incrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+        if (!isNaN(currentVal)) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    function decrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+        if (!isNaN(currentVal) && currentVal > 0) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    $('.input-group').on('click', '.button-plus', function(e) {
+		console.log("increase")
+        incrementValue(e);
+    });
+
+    $('.input-group').on('click', '.button-minus', function(e) {
+        console.log("decrease")
+        decrementValue(e);
+    });
+			</script>
 </body>
 
 </html>
