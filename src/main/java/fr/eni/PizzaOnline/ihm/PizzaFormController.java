@@ -46,6 +46,7 @@ public class PizzaFormController {
 		pizza.getListCheese().forEach(System.out::println);
 		pizza.setPrice(pizzaManager.getPizzaPrice(pizza));
 		pizzaManager.addPizza(pizza);
+		model.addAttribute("customPizza", pizza);
 		return "redirect:/liste";
 }
 	}
