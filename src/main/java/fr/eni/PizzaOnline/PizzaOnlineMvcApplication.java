@@ -278,7 +278,7 @@ public class PizzaOnlineMvcApplication {
 		Pizza pizza10 = new Pizza("4 Fromages légumes", true, true, 9.5, tomatoBase, pizza10Cheese, pizza10Ingredient);
 		Pizza pizza11 = new Pizza("Festin des grands jours", true, true, 15.0, creamBase, pizza11Cheese, pizza11Ingredient);
 		Pizza pizza12 = new Pizza("Grana Delicioza", true, true, 13.50, creamBase, pizza12Cheese, pizza12Ingredient);
-		Pizza pizza13 = new Pizza("Opération gastro", true, true, 5.0, creamBase, pizza13Cheese, pizza13Ingredient);
+		Pizza pizza13 = new Pizza("Opération gastro", true, true, 15.0, creamBase, pizza13Cheese, pizza13Ingredient);
 
 		pizza1.setImageLink("/images/reine.jpg");
 		pizza2.setImageLink("/images/vege.jpg");
