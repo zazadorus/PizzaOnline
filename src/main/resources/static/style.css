@@ -104,7 +104,7 @@ h2 {
 
 
 #products_container {
-	width:70%;
+	width:60%;
 	align-items: center;
 	border-left: 1px solid #000;
 	border-top: 1px solid #000;
@@ -112,6 +112,16 @@ h2 {
  	display: grid;
   	grid-template-columns: 50% 50% ;
   	grid-row-gap: 0;
+}
+.bucket {
+	width:20%;
+	align-items: center;
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+	margin: 2rem;
+		background-color: rgba(255, 255, 128,.6);
+
+	
 }
 .contenu{ 
 display: flex;	
@@ -125,6 +135,7 @@ display: flex;
 	display: flex;
 	flex-direction: row;
 	background-color: rgba(255, 255, 128,.6);
+	min-height: 15rem;
 	
 }
 .informations-pizza{
@@ -133,4 +144,46 @@ padding-left: 20px;
 
 .photo-apetissante{
 	height: fit-content;
+}
+
+
+.number-control {
+  display: flex;
+  align-items: center;
+}
+
+.number-left::before,
+.number-right::after {
+  content: attr(data-content);
+  background-color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: 20px;
+  color: white;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.number-left::before {
+  content: "-";
+}
+
+.number-right::after {
+  content: "+";
+}
+
+.number-quantity {
+  padding: 0.25rem;
+  border: 0;
+  width: 50px;
+  -moz-appearance: textfield;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.number-left:hover::before,
+.number-right:hover::after {
+  background-color: #666666;
 }
