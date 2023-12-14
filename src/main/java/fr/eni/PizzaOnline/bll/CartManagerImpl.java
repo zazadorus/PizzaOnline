@@ -16,15 +16,14 @@ public class CartManagerImpl implements CartManager {
 	PizzaManager pizzaManager;
 	
 	// Methode pour obtenir le prix d'un panier à partir du prix des pizzas
-	// TEST : NOK
-	// Problème de calcul de prix
+	// TEST : OK
 	@Override
 	public Double getTotalPrice(Cart cart) {
 		Double price = 0.00;
 		List <Pizza> listPizza = new ArrayList<>();
 		listPizza = cart.getListPizza();
 		for(Pizza p : listPizza) {
-			price += pizzaManager.getPizzaPrice(p);
+			price += p.getPrice();
 		}
 		return price;
 	}

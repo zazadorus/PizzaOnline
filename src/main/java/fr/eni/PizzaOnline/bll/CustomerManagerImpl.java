@@ -22,7 +22,7 @@ public class CustomerManagerImpl implements CustomerManager{
 	}
 
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	public void modCustomer(Customer customer) {
 		customerDAO.save(customer);
 	}
@@ -37,14 +37,14 @@ public class CustomerManagerImpl implements CustomerManager{
 	}
 
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	// failed to lazily initialize a collection of role: fr.eni.PizzaOnline.bo.Customer.pizzaOrder: could not initialize proxy - no Session
 	public List<Customer> getAllCustomers() {
 		return (List<Customer>) customerDAO.findAll();
 	}
 
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	// failed to lazily initialize a collection of role: fr.eni.PizzaOnline.bo.Customer.pizzaOrder: could not initialize proxy - no Session
 	public Customer getCustomerById(Integer id) {
 		return customerDAO.findById(id).orElse(null);

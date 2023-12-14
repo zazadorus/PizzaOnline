@@ -2,10 +2,7 @@ package fr.eni.PizzaOnline.bll;
 
 import java.util.List;
 
-import fr.eni.PizzaOnline.bo.Base;
-import fr.eni.PizzaOnline.bo.Cheese;
 import fr.eni.PizzaOnline.bo.Food;
-import fr.eni.PizzaOnline.bo.Ingredient;
 import fr.eni.PizzaOnline.bo.Pizza;
 
 public interface PizzaManager {

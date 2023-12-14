@@ -21,7 +21,7 @@ public class ReductionCodeManagerImpl implements ReductionCodeManager{
 	}
 
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	public void modReductionCode(ReductionCode reductionCode) {
 		reductionCodeDAO.save(reductionCode);
 	}

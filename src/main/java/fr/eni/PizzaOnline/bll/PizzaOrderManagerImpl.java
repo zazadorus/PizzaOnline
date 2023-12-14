@@ -34,7 +34,7 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	}
 
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	public void modPizzaOrder(PizzaOrder pizzaOrder) {
 		pizzaOrderDAO.save(pizzaOrder);
 		
@@ -49,15 +49,13 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	}
 
 	@Override
-	// TEST : NOK
-	// failed to lazily initialize a collection of role: fr.eni.PizzaOnline.bo.PizzaOrder.listPizza: could not initialize proxy - no Session
+	// TEST : OK
 	public List<PizzaOrder> getAllPizzaOrders() {
 		return (List<PizzaOrder>) pizzaOrderDAO.findAll();
 	}
 
 	@Override
 	// TEST : NOK
-	// failed to lazily initialize a collection of role: fr.eni.PizzaOnline.bo.PizzaOrder.listPizza: could not initialize proxy - no Session
 	public PizzaOrder getPizzaOrderById(Integer id) {
 		return pizzaOrderDAO.findById(id).orElse(null);
 	}
@@ -75,14 +73,13 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	
 	// Méthode pour obtenir le prix d'une commande à partir des pizzas et du code de réduction
 	@Override
-	// TEST : NOK
-	// Problème de calcul
+	// TEST : OK
 	public Double getTotalPrice(PizzaOrder pizzaOrder) {
 		Double price = 0.00;
 		List <Pizza> listPizza = new ArrayList<>();
 		listPizza = pizzaOrder.getListPizza();
 		for(Pizza p : listPizza) {
-			price += pizzaManager.getPizzaPrice(p);
+			price += p.getPrice();
 		}
 		price = price * (1-pizzaOrder.getReductionCode().getAmountReduction());
 		return price;
