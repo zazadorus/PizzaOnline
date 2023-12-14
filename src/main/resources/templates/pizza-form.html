@@ -30,8 +30,7 @@
 			<div>
 				<legend>Choisissez votre base</legend>
 				<select name="base" id="base-select" th:field="*{base}">
-					<option value="tomato">Tomate</option>
-					<option value="cream">Crème</option>
+					<option th:each="base : ${listeBases}" th:value="${base.id}" th:text="${base.wording}"></option>
 				</select>
 			</div>	
 			
@@ -39,21 +38,17 @@
 			<div>
 				<fieldset>
 				<legend>Choisissez vos fromages</legend>
-				<input type="checkbox"  value="Gorgonz" checked><label >Gorgonz</label>	
-				<input type="checkbox"  value="Mozzarel"><label >Mozzarel</label>	
-				<input type="checkbox"  value="Chev"><label >Chev</label>	
+				<div th:each="cheese : ${listeCheeses}">					
+					<input name="listCheese" type="checkbox" th:value="${cheese.id}"><label th:text="${cheese.wording}"></label>	
+				</div>
 			</div>	
 
 					
 			<!--Ingredients -->
 			<div>
 				<legend>Choisissez vos Ingredients</legend>
-				<select name="ingredient" id="ingedient-select" multiple>
-				
-					<option value="Bacon">Bacon</option>
-					<option value="Champi">Champi</option>
-					<option value="Artichô">Artichô</option>
-					<option value="Oeuf">Oeuf</option>
+				<select name="listIngredient" id="ingedient-select" multiple>
+					<option th:each="ingredient : ${listeIngredients}" th:value="${ingredient.id}" th:text="${ingredient.wording}"/>
 				</select> 
 			</div>		 
 				 
