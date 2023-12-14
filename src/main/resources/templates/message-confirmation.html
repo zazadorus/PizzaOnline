@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Contact</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="/style.css" rel="stylesheet">
+    </head>
+
+<body>
+	<header class="header">
+		<div class="header_inner">
+			<!--<a class="header_logo" href="/">
+			logo
+		</a>-->
+
+			<nav class="header_nav">
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Accueil </span>
+					</a>
+
+				</li>
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Commander à emporter
+						</span>
+					</a>
+
+				</li>
+
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Consulter le menu </span>
+					</a>
+
+				</li>
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Restaurant </span>
+					</a>
+
+				</li>
+				<li class="menu_nav_item">
+
+					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
+						<span class="menu_nav_title">
+							Contact
+						</span>
+					</a>
+
+				</li>
+			</nav>
+		</div>
+	</header>
+    <main>
+
+        <h1>Confirmation de message</h1>
+
+        <p> Votre message a bien été transmis à notre management ! <br>
+            Récapitulatif de votre message :
+        </p>
+
+        <div>
+            <p>Votre nom : <span th:text="${contactMessage.lastname}"></span></p>
+        </div>
+
+        <div>
+            <p>Votre prénom : <span th:text="${contactMessage.firstname}"></span></p>
+        </div>
+
+        <div>
+            <p>Votre email : <span th:text="${contactMessage.email}"></span></p>
+        </div>
+
+        <div>
+            <p>Votre telephone : <span th:text="${contactMessage.telephone}"></span></p>
+        </div>
+
+        <div>
+            <p>Votre message : <span th:text="${contactMessage.message}"></span></p>
+        </div>
+
+    </main>
