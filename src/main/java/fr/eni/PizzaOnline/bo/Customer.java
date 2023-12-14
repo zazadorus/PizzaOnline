@@ -3,7 +3,9 @@ package fr.eni.PizzaOnline.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -35,7 +37,7 @@ public class Customer {
 	private String digicode1;
 	private String digicode2;
 	private String instruction;
-	@OneToMany 
+	@OneToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
 	private List<PizzaOrder> pizzaOrder = new ArrayList<>();
 
 	public Customer(String lastname, String firstname, String adress, String postalCode, String city) {

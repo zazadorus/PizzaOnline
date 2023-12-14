@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.eni.PizzaOnline.bo.Base;
 import fr.eni.PizzaOnline.bo.Cheese;
 import fr.eni.PizzaOnline.bo.Food;
 import fr.eni.PizzaOnline.bo.Ingredient;
@@ -35,15 +34,13 @@ public class PizzaManagerImpl implements PizzaManager {
 	}
 		
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	public void modPizza(Pizza pizza) {
 		pizzaDAO.save(pizza);
 	}
 
 	@Override
-	// TEST : NOK
-	// Intégrité référentielle violation de contrainte: "FKNLOW8KD7GSHS3I14XQNA7ESAI: PUBLIC.PIZZA_ORDER_LIST_PIZZA FOREIGN KEY(LIST_PIZZA_ID) REFERENCES PUBLIC.PIZZA(ID) (2)"
-	// Referential integrity constraint violation: "FKNLOW8KD7GSHS3I14XQNA7ESAI: PUBLIC.PIZZA_ORDER_LIST_PIZZA FOREIGN KEY(LIST_PIZZA_ID) REFERENCES PUBLIC.PIZZA(ID) (2)"; SQL statement:
+	// TEST : OK
 	public void delPizza(Integer id) {
 		Pizza pizza = getPizzaById(id);
 		pizzaDAO.delete(pizza);

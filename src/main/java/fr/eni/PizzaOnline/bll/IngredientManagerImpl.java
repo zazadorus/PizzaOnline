@@ -21,7 +21,7 @@ public class IngredientManagerImpl implements IngredientManager{
 	}
 
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	public void modIngredient(Ingredient ingredient) {
 		ingredientDAO.save(ingredient);
 		

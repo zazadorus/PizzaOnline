@@ -24,7 +24,7 @@ public class CheeseManagerImpl implements CheeseManager{
 
 	@Override
 	@Transactional
-	// TEST : NOK
+	// TEST : OK
 	public void modCheese(Cheese cheese) {
 		cheeseDAO.save(cheese);
 	}

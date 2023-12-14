@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -26,8 +28,8 @@ public class PizzaOrder {
 	private String orderHour;
 	@ManyToOne
 	private ReductionCode reductionCode;
-	@ManyToMany
-	private List<Pizza> listPizza = new ArrayList<>();;
+	@ManyToMany (cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+	private List<Pizza> listPizza = new ArrayList<>();
 	@ManyToOne
 	private Customer customer;
 	

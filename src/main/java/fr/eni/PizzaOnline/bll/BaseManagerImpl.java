@@ -22,7 +22,7 @@ public class BaseManagerImpl implements BaseManager{
 	}
 
 	@Override
-	// TEST : NOK
+	// TEST : OK
 	public void modBase(Base base) {
 		baseDAO.save(base);
 		
