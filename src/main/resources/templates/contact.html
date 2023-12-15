@@ -1,115 +1,141 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Contact</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="/style.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link href="/style.css" rel="stylesheet">
+        <link href="/footerstyle.css" rel="stylesheet">
     </head>
 
-<body>
-	<header class="header">
-		<div class="header_inner">
-			<!--<a class="header_logo" href="/">
-			logo
-		</a>-->
+    <body>
+        <header class="header">
+            <div class="header_inner">
+                <!--<a class="header_logo" href="/">
+                logo
+            </a>-->
 
-			<nav class="header_nav">
-				<li class="menu_nav_item">
+                <nav class="header_nav">
+                    <li class="menu_nav_item">
 
-					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
-						<span class="menu_nav_title">
-							Accueil </span>
-					</a>
+                        <a class="menu_nav_link" href="" data-nav-item="" data-mega-menu="4">
+                            <span class="menu_nav_title">
+                                Accueil </span>
+                        </a>
 
-				</li>
-				<li class="menu_nav_item">
+                    </li>
+                    <li class="menu_nav_item">
 
-					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
-						<span class="menu_nav_title">
-							Commander à emporter
-						</span>
-					</a>
+                        <a class="menu_nav_link" href="/ajout-pizza" data-nav-item="" data-mega-menu="4">
+                            <span class="menu_nav_title">
+                                Commander à emporter
+                            </span>
+                        </a>
 
-				</li>
+                    </li>
 
-				<li class="menu_nav_item">
+                    <li class="menu_nav_item">
 
-					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
-						<span class="menu_nav_title">
-							Consulter le menu </span>
-					</a>
+                        <a class="menu_nav_link" href="/liste" data-nav-item="" data-mega-menu="4">
+                            <span class="menu_nav_title">
+                                Consulter le menu </span>
+                        </a>
 
-				</li>
-				<li class="menu_nav_item">
+                    </li>
+                    <li class="menu_nav_item">
 
-					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
-						<span class="menu_nav_title">
-							Restaurant </span>
-					</a>
+                        <a class="menu_nav_link" href="/restaurant" data-nav-item="" data-mega-menu="4">
+                            <span class="menu_nav_title">
+                                Restaurant </span>
+                        </a>
 
-				</li>
-				<li class="menu_nav_item">
+                    </li>
+                    <li class="menu_nav_item">
 
-					<a class="menu_nav_link" href="/" data-nav-item="" data-mega-menu="4">
-						<span class="menu_nav_title">
-							Contact
-						</span>
-					</a>
+                        <a class="menu_nav_link" href="/contact" data-nav-item="" data-mega-menu="4">
+                            <span class="menu_nav_title">
+                                Contact
+                            </span>
+                        </a>
 
-				</li>
-			</nav>
-		</div>
-	</header>
-    <main>
-        <h1>Contact</h1>
-
-        <form th:action="@{/contact}" th:object="${contactMessage}" method="POST">
-            <!-- lastname -->
-            <div>
-                <legend>Nom</legend>
-                <input type="text" th:field="*{lastname}" placeholder="ex : Dupont"/>
-                <!--error message if the name is empty.  -->
-                <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" />
-            </div>	
-
-            <!-- firstname -->
-            <div>
-                <legend>Prénom</legend>
-                <input type="text" th:field="*{firstname}" placeholder="ex : Antoine"/>
-                <!--error message if the firstname is empty.  -->
-                <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" />
+                    </li>
+                </nav>
             </div>
+        </header>
+        <main>
+            <h1>Contact</h1>
 
-            <!-- email -->
-            <div>
-                <legend>E-mail</legend>
-                <input type="text" th:field="*{email}" placeholder="ex : antoine.dupont@gmail.com"/>
-                <!--error message if the email is empty.  -->
-                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+            <form th:action="@{/contact}" th:object="${contactMessage}" method="POST">
+                <!-- lastname -->
+                <div>
+                    <legend>Nom</legend>
+                    <input type="text" th:field="*{lastname}" placeholder="ex : Dupont"/>
+                    <!--error message if the name is empty.  -->
+                    <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" />
+                </div>	
+
+                <!-- firstname -->
+                <div>
+                    <legend>Prénom</legend>
+                    <input type="text" th:field="*{firstname}" placeholder="ex : Antoine"/>
+                    <!--error message if the firstname is empty.  -->
+                    <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" />
+                </div>
+
+                <!-- email -->
+                <div>
+                    <legend>E-mail</legend>
+                    <input type="text" th:field="*{email}" placeholder="ex : antoine.dupont@gmail.com"/>
+                    <!--error message if the email is empty.  -->
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+                </div>
+
+                <!-- telephone -->
+                <div>  
+                    <legend>Téléphone</legend>
+                    <input type="text" th:field="*{telephone}" placeholder="ex : 06.21.35.48.95"/>
+                    <!--error message if the telephone is empty.  -->
+                    <span th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" />
+                </div>
+
+                <!-- message -->
+                <div>
+                    <legend>Votre message</legend>
+                    <input type="text" th:field="*{message}" placeholder="Ecrivez votre message ici."/>
+                    <!--error message if the telephone is empty.  -->
+                    <span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" />
+                </div>
+                    
+                <input type="submit" value="Envoyer message" />
+
+            </form>
+
+        </main>
+        <footer class="footer">
+            <div class="footer_inner">   
+                <nav class="footer_nav">
+
+                    <li class="menu_nav_item">
+                        <a class="menu_nav_link" href="/conditions" data-nav-item="" data-mega-menu="4">
+                            <span class="menu_nav_title">
+                                Conditions Générales de Vente
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="menu_nav_item">
+                        <a class="menu_nav_link" href="/mentions" data-nav-item="" data-mega-menu="4">
+                            <span class="menu_nav_title">
+                                Mentions Légales
+                            </span>
+                        </a>
+                    </li>
+                    
+                </nav>
             </div>
-
-            <!-- telephone -->
-            <div>  
-                <legend>Téléphone</legend>
-                <input type="text" th:field="*{telephone}" placeholder="ex : 06.21.35.48.95"/>
-                <!--error message if the telephone is empty.  -->
-                <span th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" />
-            </div>
-
-            <!-- message -->
-            <div>
-                <legend>Votre message</legend>
-                <input type="text" th:field="*{message}" placeholder="Ecrivez votre message ici."/>
-                <!--error message if the telephone is empty.  -->
-                <span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" />
-            </div>
-                
-            <input type="submit" value="Envoyer message" />
-
-        </form>
-
-    </main>
+        </footer>
+    </body>
+    
+</html>

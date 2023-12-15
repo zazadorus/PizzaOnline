@@ -16,4 +16,6 @@ public interface ReductionCodeManager {
 	
 	public ReductionCode getReductionCodeById(Integer id);
 	
+	public Double getAmountReductionByCode(String code);
+	
 }
