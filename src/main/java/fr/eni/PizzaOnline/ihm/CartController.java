@@ -6,19 +6,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.eni.PizzaOnline.bll.CartManager;
 import fr.eni.PizzaOnline.bll.PizzaManager;
 import fr.eni.PizzaOnline.bll.PizzaOrderManager;
 import fr.eni.PizzaOnline.bo.Cart;
-import fr.eni.PizzaOnline.bo.ContactMessage;
 import fr.eni.PizzaOnline.bo.Pizza;
 import jakarta.servlet.http.HttpSession;
-import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/panier")
@@ -81,7 +79,6 @@ public class CartController {
 			cart = (Cart) session.getAttribute("cart");
 			pizzaList = cart.getListPizza() != null ? cart.getListPizza() : new ArrayList<Pizza>();
 		}
-		
 		model.addAttribute("cart", cart);
 		model.addAttribute("listePizzas", pizzaManager.getAllPizzas());
 		model.addAttribute("totalCart", cartManager.getTotalPrice(cart));

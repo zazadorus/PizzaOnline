@@ -91,6 +91,10 @@
 				<span th:if="${cart.listPizza.size!=0}">Vous avez commandé</span> <span
 					th:text="${cart.listPizza.size}"></span> pizzas
 				<br>
+				<div>
+                    <legend>Code de réduction : </legend>
+                    <input type="text" name="reductionCode"/>
+                </div>
 				<span>Prix Total <span th:text="${totalCart}"></span> €</span>
 				<br>
 				<button type="submit">Passer la commande</button>
