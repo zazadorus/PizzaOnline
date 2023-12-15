@@ -45,6 +45,10 @@ public class ReductionCodeManagerImpl implements ReductionCodeManager{
 		return reductionCodeDAO.findById(id).orElse(null);
 	}
 
+	@Override
+	public Double getAmountReductionByCode(String code) {
+        return reductionCodeDAO.findAmountReductionByReductionCode(code);
+    }
 
 	
 }
