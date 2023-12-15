@@ -134,7 +134,7 @@
 				</div>
 
 			</div>
-			<div class="bucket">
+			<div th:if="${cart != null}" class="bucket">
 				<h4>Récapitulatif</h4>
 				<form th:action="@{/panier}" method="POST">
 
