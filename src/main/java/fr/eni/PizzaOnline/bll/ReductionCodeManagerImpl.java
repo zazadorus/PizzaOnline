@@ -46,8 +46,8 @@ public class ReductionCodeManagerImpl implements ReductionCodeManager{
 	}
 
 	@Override
-	public Double getAmountReductionByCode(String code) {
-        return reductionCodeDAO.findAmountReductionByReductionCode(code);
+	public ReductionCode getAmountReductionByCode(String code) {
+        return reductionCodeDAO.findReductionCodeByCode(code);
     }
 
 	
