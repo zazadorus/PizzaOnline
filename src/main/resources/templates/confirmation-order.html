@@ -64,12 +64,31 @@ logo
 	</header>
 		<main>
 
-		<div class="bucket">
+		<div class="bucket p-2">
 			<h4>Récapitulatif de la commande</h4>
+			<u>Client</u>
+			<div>
+				<span th:text="${order.customer.lastname}"></span>
+				<span th:text="${order.customer.firstname}"></span>
+			</div>
+			<div>
+				<span th:text="${order.customer.adress}"></span>
+			</div>
+			<div>
+				<span th:if="${order.customer.postalCode!=null}" th:text="${order.customer.postalCode}"></span>
+				<span th:if="${order.customer.city!=null}" th:text="${order.customer.city}"></span>
+			</div>
+			<br>
+			
+			<div>
+				<span>Commande à récupérer le : </span>
+				<span th:if="${order.deliveryDate}" th:text="${#temporals.format(order.deliveryDate, 'dd-MM-yyyy')}"></span>
+			</div>
+			<br>
 
+			<u>Liste des pizzas</u>
 				<div th:each="pizza : ${order.listPizza}">
-					Pizza : <span th:text="${pizza.name}"></span>
-					<br>Prix : <span th:text="${pizza.price}"></span>
+					<span th:text="${pizza.name}"></span> - <span th:text="${pizza.price}"></span> €
 				</div>
 				<br>
 				<span th:if="${order.listPizza.size!=0}">Vous avez commandé</span> <span
