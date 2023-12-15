@@ -82,51 +82,52 @@
 				<h1>Contact</h1>
 			</div>
 		</div>
-		<form th:action="@{/contact}" th:object="${contactMessage}" method="POST">
-			<!-- lastname -->
-			<div>
-				<legend>Nom</legend>
-				<input type="text" th:field="*{lastname}" placeholder="ex : Dupont" />
-				<!--error message if the name is empty.  -->
-				<span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" />
-			</div>
+		<div class="contenu">
+			<form th:action="@{/contact}" th:object="${contactMessage}" method="POST">
+				<!-- lastname -->
+				<div class="form-part">
+					<legend>Nom</legend>
+					<input type="text" th:field="*{lastname}" placeholder="ex : Dupont" />
+					<!--error message if the name is empty.  -->
+					<span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" />
+				</div>
 
-			<!-- firstname -->
-			<div>
-				<legend>Prénom</legend>
-				<input type="text" th:field="*{firstname}" placeholder="ex : Antoine" />
-				<!--error message if the firstname is empty.  -->
-				<span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" />
-			</div>
+				<!-- firstname -->
+				<div class="form-part">
+					<legend>Prénom</legend>
+					<input type="text" th:field="*{firstname}" placeholder="ex : Antoine" />
+					<!--error message if the firstname is empty.  -->
+					<span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" />
+				</div>
 
-			<!-- email -->
-			<div>
-				<legend>E-mail</legend>
-				<input type="text" th:field="*{email}" placeholder="ex : antoine.dupont@gmail.com" />
-				<!--error message if the email is empty.  -->
-				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
-			</div>
+				<!-- email -->
+				<div class="form-part">
+					<legend>E-mail</legend>
+					<input type="text" th:field="*{email}" placeholder="ex : antoine.dupont@gmail.com" />
+					<!--error message if the email is empty.  -->
+					<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+				</div>
 
-			<!-- telephone -->
-			<div>
-				<legend>Téléphone</legend>
-				<input type="text" th:field="*{telephone}" placeholder="ex : 06.21.35.48.95" />
-				<!--error message if the telephone is empty.  -->
-				<span th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" />
-			</div>
+				<!-- telephone -->
+				<div class="form-part">
+					<legend>Téléphone</legend>
+					<input type="text" th:field="*{telephone}" placeholder="ex : 06.21.35.48.95" />
+					<!--error message if the telephone is empty.  -->
+					<span th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" />
+				</div>
 
-			<!-- message -->
-			<div>
-				<legend>Votre message</legend>
-				<input type="text" th:field="*{message}" placeholder="Ecrivez votre message ici." />
-				<!--error message if the telephone is empty.  -->
-				<span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" />
-			</div>
+				<!-- message -->
+				<div class="form-part">
+					<legend>Votre message</legend>
+					<input type="text" th:field="*{message}" placeholder="Ecrivez votre message ici." />
+					<!--error message if the telephone is empty.  -->
+					<span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" />
+				</div>
 
-			<input type="submit" value="Envoyer message" />
+				<input type="submit" value="Envoyer message" />
 
-		</form>
-
+			</form>
+		</div>
 	</main>
 	<footer class="footer">
 		<div class="footer_inner">
