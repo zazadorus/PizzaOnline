@@ -1,13 +1,12 @@
 body {
     text-align: justify;
-    padding: 100px;
     margin: auto;
 }
+@font-face {
 
-h1 {
-   text-transform: full-width;
-   text-align: center;
-   text-decoration: underline overline;
+
+	font-family: "custom-font-content";
+	src: url("/fonts/Nunito-Regular.ttf") format("truetype");
 }
 
 .informations {
@@ -20,6 +19,9 @@ h1 {
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
+	font-family: "custom-font-content";
+	color:white;
+	font-size:1.5rem;
 }
 
 .caroussel img{
@@ -55,7 +57,17 @@ h1 {
     height: auto;
     margin-left: 10px;
 }
+.restaurant-container{
+	margin-top: 2rem;
+	width:60%;
+}
 
+.contenu-restaurant {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
 .caroussel {
 carousel-control-color:white;
 carousel-control-width:15%;
