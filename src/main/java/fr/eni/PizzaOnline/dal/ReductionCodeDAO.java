@@ -8,7 +8,7 @@ import fr.eni.PizzaOnline.bo.ReductionCode;
 
 public interface ReductionCodeDAO extends CrudRepository<ReductionCode, Integer>{
 
-	@Query("SELECT r.amountReduction FROM ReductionCode r WHERE r.codeReduction = :code")
-    Double findAmountReductionByReductionCode(@Param("code") String code);
+	@Query("SELECT r FROM ReductionCode r WHERE r.codeReduction = :code")
+    ReductionCode findReductionCodeByCode(@Param("code") String code);
 	
 }

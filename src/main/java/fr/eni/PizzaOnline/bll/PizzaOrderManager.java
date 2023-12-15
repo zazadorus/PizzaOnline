@@ -21,6 +21,6 @@ public interface PizzaOrderManager {
 	
 	public Double getTotalPrice(PizzaOrder pizzaOrder);
 	
-	public PizzaOrder setPizzaOrder(Cart cart, Customer customer, ReductionCode reductionCode);
+	public PizzaOrder setPizzaOrder(Cart cart, Customer customer, String code);
 	
 }

@@ -25,7 +25,7 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	PizzaManager pizzaManager;
 	
 	@Autowired
-	ReductionCodeDAO reductionCodeDAO;
+	ReductionCodeManager reductionCodeManager;
 	
 	@Override
 	// TEST : OK
@@ -64,9 +64,13 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 	@Override
 	// TEST : OK
 	// A modifier pour les dates livraison et commande
-	public PizzaOrder setPizzaOrder(Cart cart, Customer customer, ReductionCode reductionCode) {
+	public PizzaOrder setPizzaOrder(Cart cart, Customer customer, String code) {
 		List<Pizza> listPizza = new ArrayList<>();
 		listPizza = cart.getListPizza();
+		ReductionCode reductionCode = null;
+		if(code != null) {
+			reductionCode = reductionCodeManager.getAmountReductionByCode(code);
+		}
 		
 		return new PizzaOrder(LocalDate.now(), "10h00", LocalDate.now(), "11h00",reductionCode, listPizza, customer);
 	}
@@ -81,7 +85,9 @@ public class PizzaOrderManagerImpl implements PizzaOrderManager {
 		for(Pizza p : listPizza) {
 			price += p.getPrice();
 		}
-		price = price * (1-pizzaOrder.getReductionCode().getAmountReduction());
+		if(pizzaOrder.getReductionCode()!=null) {
+			price = price * (1-pizzaOrder.getReductionCode().getAmountReduction());
+		}
 		return price;
 	}
 	
