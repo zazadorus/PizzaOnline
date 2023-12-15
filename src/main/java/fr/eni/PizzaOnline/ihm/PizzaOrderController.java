@@ -31,10 +31,10 @@ public class PizzaOrderController {
 	public String index(Model model, HttpSession session) {
 		
 		// Si l'attribut cart n'est pas enregistré en session, le créer
-		if (session.getAttribute("cart") == null) {	
-			Cart cart = new Cart();
-			session.setAttribute("cart", cart);
-		}
+//		if (session.getAttribute("cart") == null) {	
+//			Cart cart = new Cart();
+//			session.setAttribute("cart", cart);
+//		}
 		
 		model.addAttribute("cart",session.getAttribute("cart"));
 		model.addAttribute("listePizzas", pizzaManager.getAllPizzas());
