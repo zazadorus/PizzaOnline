@@ -89,50 +89,52 @@
 				<h1>Pizza personnalisée</h1>
 			</div>
 		</div>
-		<form th:action="@{/ajout-pizza}" th:object="${pizza}" method="POST">
+		<div class="contenu">
+			<form th:action="@{/ajout-pizza}" th:object="${pizza}" method="POST" class="main-form">
 
-			<!--name -->
-			<div class="form-part">
+				<!--name -->
+				<div class="form-part">
 
-				<h3>Nom de votre pizza</h3>
-				<input type="text" th:field="*{name}" placeholder="Pizza Régal" class="form-control">
-				<!--error message if the name is empty.  -->
-				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
-			</div>
+					<h3>Nom de votre pizza</h3>
+					<input type="text" th:field="*{name}" placeholder="Pizza Régal" class="form-control">
+					<!--error message if the name is empty.  -->
+					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+				</div>
 
-			<!--base -->
-			<div class="form-part">
-				<h3>Choisissez votre base</h3>
-				<select name="base" id="base-select" th:field="*{base}" class="form-select">
-					<option th:each="base : ${listeBases}" th:value="${base.id}" th:text="${base.wording}"></option>
-				</select>
-			</div>
+				<!--base -->
+				<div class="form-part">
+					<h3>Choisissez votre base</h3>
+					<select name="base" id="base-select" th:field="*{base}" class="form-select" style="color: white;" >
+						<option th:each="base : ${listeBases}" th:value="${base.id}" th:text="${base.wording}"></option>
+					</select>
+				</div>
 
-			<!--cheese -->
-			<div class="form-part">
-				<fieldset>
-					<h3>Choisissez vos fromages</h3>
-					<div th:each="cheese : ${listeCheeses}" class="form-check form-switch" role="switch"
-						style="margin-left:2rem">
-						<input name="listCheese" type="checkbox" th:value="${cheese.id}" class="form-check-input">
-						<label th:text="${cheese.wording}"></label>
-					</div>
-			</div>
+				<!--cheese -->
+				<div class="form-part">
+					<fieldset>
+						<h3>Choisissez vos fromages</h3>
+						<div th:each="cheese : ${listeCheeses}" class="form-check form-switch" role="switch"
+							style="margin-left:2rem" >
+							<input name="listCheese" type="checkbox" th:value="${cheese.id}" class="form-check-input" >
+							<label th:text="${cheese.wording}"></label>
+						</div>
+				</div>
 
 
-			<!--Ingredients -->
-			<div class="form-part">
-				<h3>Choisissez vos Ingredients</h3>
-				<select name="listIngredient" id="ingedient-select" multiple class="form-select form-select-grand">
-					<option th:each="ingredient : ${listeIngredients}" th:value="${ingredient.id}"
-						th:text="${ingredient.wording}" />
-				</select>
-			</div>
+				<!--Ingredients -->
+				<div class="form-part">
+					<h3>Choisissez vos Ingredients</h3>
+					<select name="listIngredient" id="ingredient-select" multiple class="form-select form-select-grand"  style="color: white;" >
+						<option th:each="ingredient : ${listeIngredients}" th:value="${ingredient.id}"
+							th:text="${ingredient.wording}" />
+					</select>
+				</div>
 
-			<div class="contenu" style="padding-top:4rem">
-				<input type="submit" value="ajouter" />
-			</div>
-		</form>
+				<div class="contenu" >
+					<input type="submit" value="ajouter" />
+				</div>
+			</form>
+		</div>
 
 	</div>
 
